@@ -1,0 +1,269 @@
+/* Custom styles for DataViz Pro */
+
+:root {
+    --primary-color: #3b82f6;
+    --secondary-color: #10b981;
+    --danger-color: #ef4444;
+    --warning-color: #f59e0b;
+    --success-color: #10b981;
+    --info-color: #06b6d4;
+}
+
+/* Smooth transitions */
+* {
+    transition: all 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Drag and drop hover effect */
+#dropZone.dragover {
+    border-color: var(--primary-color);
+    background-color: #f0f9ff;
+    transform: scale(1.02);
+}
+
+/* Chart containers */
+.chart-container {
+    position: relative;
+    height: 400px;
+    margin: 20px 0;
+}
+
+/* Data quality indicators */
+.quality-indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.quality-high {
+    background-color: var(--success-color);
+}
+
+.quality-medium {
+    background-color: var(--warning-color);
+}
+
+.quality-low {
+    background-color: var(--danger-color);
+}
+
+/* Feature tabs styling */
+.feature-tab {
+    cursor: pointer;
+    padding: 12px 20px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.feature-tab:hover {
+    background-color: #f8fafc;
+}
+
+.feature-tab.active {
+    border-bottom-color: var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Data type badges */
+.type-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.type-numeric {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.type-categorical {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.type-datetime {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.type-text {
+    background-color: #f3e8ff;
+    color: #7c2d12;
+}
+
+/* Outlier highlighting */
+.outlier-highlight {
+    background-color: #fef2f2;
+    border-left: 4px solid var(--danger-color);
+    padding: 8px;
+    margin: 4px 0;
+}
+
+/* Duplicate comparison */
+.duplicate-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.duplicate-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.duplicate-card.highlight {
+    border-color: var(--warning-color);
+    background: #fffbeb;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .duplicate-comparison {
+        grid-template-columns: 1fr;
+    }
+    
+    .chart-container {
+        height: 300px;
+    }
+}
+
+/* Loading animations */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.loading-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Tooltip styling */
+.tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* File upload animation */
+.upload-animation {
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Color-coded status indicators */
+.status-indicator {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-good {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.status-warning {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.status-error {
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+/* Interactive elements hover effects */
+.interactive-element {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.interactive-element:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Chart legend styling */
+.chart-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    margin-right: 8px;
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        background: white;
+    }
+    
+    .chart-container {
+        break-inside: avoid;
+    }
+}
